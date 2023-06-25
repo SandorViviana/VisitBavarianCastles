@@ -1,0 +1,31 @@
+<nz-modal [nzTitle]="mode | titlecase" (nzOnOk)="handleOk()" (nzOnCancel)="handleCancel()" [(nzVisible)]="isVisible">
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="recordForm" class="modal-form">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please select the castle!">
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a castle" formControlName="castle">
+            <nz-option *ngFor="let castle of castles" [nzLabel]="castle.name" [nzValue]="castle"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please select the status of your visit!">
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select the status of the trip" formControlName="status">
+            <nz-option nzLabel="Visited" [nzValue]="0"></nz-option>
+            <nz-option nzLabel="Planned visit" [nzValue]="1"></nz-option>
+            <nz-option nzLabel="Want to visit" [nzValue]="2"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+          <nz-form-item>
+              <nz-form-control nzErrorTip="If you visited the castle, select the date">
+                <input nz-input type="date" formControlName="visitDate" />
+                <div class="red-text" *ngIf="visitDateFormControl.invalid && visitDateFormControl.errors?.['visitDate']">
+                  The date is invalid
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>
+

@@ -1,0 +1,45 @@
+.table-container{
+    width:90%;
+    margin:auto;
+}
+
+.manipulation-area{
+    height:5%;
+    width:70%;
+    margin-top:2%;
+    display: grid;
+    grid-template-columns: 2fr 0.75fr 1fr;
+}
+
+.table-button {
+    width: 80px;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: medium;
+    background-color: rgb(120,180,181);
+    border: 1px solid rgb(95,142,142);
+  }
+
+.table-button:hover{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    cursor:pointer;
+  }
+
+.table-area
+{
+    margin: 2% 0%;
+}
+
+#operations{
+    display: flex;
+    flex-direction: column;
+
+    button{
+        border:0;
+        background-color: white;
+    }
+    button:hover{
+        background-color: rgb(222, 217, 217);
+    }
+}

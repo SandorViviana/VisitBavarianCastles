@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'AlteSchwabacher';
+    src: url('../../../assets/AlteSchwabacher.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+  }
+header{
+    background-image: url("../../../assets/Images/HeaderMain.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+     background-size: cover;
+     background-attachment: fixed;
+    min-height: 30%;
+    width:100%;
+}
+
+.logout-button {
+    width: 100px;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: medium;
+    //background-color: #0065ff;
+    background-color: rgb(120,180,181);
+    border: 1px solid rgb(95,142,142);
+  }
+
+  .logout-button:hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    cursor:pointer;
+  }
+
+  h1{
+    width:37%;
+    padding: 1%;
+    margin:auto;
+    font-family: 'AlteSchwabacher';
+    font-size: 55px;
+    font-weight: bold;
+    opacity:0.7;
+    background-color: white;
+    //border-radius: 20%;
+  }

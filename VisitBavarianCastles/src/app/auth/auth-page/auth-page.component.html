@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div id="auth-page">
+  <button class="login-button" (click)="onLogInClick()">Log in</button>
+  <button class="register-button" (click)="onRegisterClick()">Register</button>
+  <app-login-form [isVisible]="showLoginForm" (closeModal)="showLoginForm = false"></app-login-form>
+  <app-register-form [isVisible]="showRegisterForm" (closeModal)="showRegisterForm = false"></app-register-form>
+</div>
+

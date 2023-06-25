@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'DSFetteThannhaeuser';
+    src: url('../../../assets/DSFetteThannhaeuser.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GermaniaVersalien';
+    src: url('../../../assets/GermaniaVersalien.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+
+.header {
+   background-image: url("../../../assets/Images/HeaderVariant2.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+    padding: 20px;
+    text-align: center;
+    min-height: 66%;
+  }
+  
+  .header-title {
+    font-size: 70px;
+    font-family: 'GermaniaVersalien';
+    font-weight: bold;
+    color: #252323;
+  }
+
+  .subtitle
+  {
+    font-size: 35px;
+    font-family: 'DSFetteThannhaeuser'
+  }
+
+.container
+{
+    opacity:0.7;
+    background-color: white;
+    width:35%;
+   vertical-align: middle;
+    margin:auto;
+    margin-top: 5%;
+    border-radius: 10%;
+}
+
+  

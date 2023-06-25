@@ -1,0 +1,86 @@
+<div class="table-container">
+    <div class="manipulation-area">
+        <input  placeholder="Search for a record"  [(ngModel)]="castleSearched" (input)="setSearch(castleSearched)">
+        <div></div>
+        <button class="table-button" (click)="addRecord()">Add</button>
+    </div>
+        <div class="table-area" *ngIf="filteredRecords && filteredRecords.length>0">
+          <nz-table #sortTable [nzData]="filteredRecords" [nzPageSize]="3">
+              <thead>
+                <tr>
+                  <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+                    {{ column.title }}
+                  </th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of sortTable.data">
+                  <td>{{ data.castle.name}}</td>
+                  <td>{{ data.castle.city }}</td>
+                  <td>{{ data.visitDate}}</td>
+                  <td>{{ data.addDate}}</td>
+                  <td>{{getStatusString(data.status)}}</td>
+                  <td>
+                      <button class="table-button" (click)="showModal(data.castle)">Details</button>
+                      
+                  </td>
+                  <td id="operations">
+                      <button>
+                          <span nz-icon nzType="edit" nzTheme="outline" (click)="editRecord(data)"></span>
+                      </button>
+                      <button>
+                          <span nz-icon nzType="delete" nzTheme="outline" (click)="deleteRecord(data)"></span>
+                      </button>
+  
+                  </td>
+                </tr>
+              </tbody>
+            </nz-table>
+      </div>
+        
+    <div class="table-area" *ngIf="visitRecords && (!filteredRecords || filteredRecords.length==0)">
+        <nz-table #sortTable [nzData]="visitRecords" [nzPageSize]="3">
+            <thead>
+              <tr>
+                <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+                  {{ column.title }}
+                </th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of sortTable.data">
+                <td>{{ data.castle.name}}</td>
+                <td>{{ data.castle.city }}</td>
+                <td>{{ data.visitDate}}</td>
+                <td>{{ data.addDate}}</td>
+                <td>{{getStatusString(data.status)}}</td>
+                <td>
+                    <button class="table-button" (click)="showModal(data.castle)">Details</button>
+                    
+                </td>
+                <td id="operations">
+                    <button>
+                        <span nz-icon nzType="edit" nzTheme="outline" (click)="editRecord(data)"></span>
+                    </button>
+                    <button>
+                        <span nz-icon nzType="delete" nzTheme="outline" (click)="deleteRecord(data)"></span>
+                    </button>
+
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+    </div>
+    <div class="table-area" *ngIf="!visitRecords || visitRecords.length==0">
+        There are no records yet. Make some plans!
+    </div>
+    <app-castle-details *ngIf="selectedCastle"   [isVisible]="showDetails" [castle]="selectedCastle"
+                    (closeModal)="showDetails=false"></app-castle-details>
+ <app-add-edit-record [isVisible]="showEditModal" [mode]="mode" [record]="recordToEdit"
+    (closeModal)="showEditModal=false" (addRecord)="addReceivedRecord($event)" (editRecord)="editReceivedRecord($event)" ></app-add-edit-record>  
+</div>
+

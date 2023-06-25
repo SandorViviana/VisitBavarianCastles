@@ -1,0 +1,10 @@
+<nz-modal  [nzTitle]="castle.name"  (nzOnOk)="handleOk()" (nzOnCancel)="handleOk()" (nzAfterClose)="handleOk()" [(nzVisible)]="isVisible">
+<ng-container *nzModalContent>
+    <img [src]="castle.imageUrl">
+    <div class="content">
+<span>Location:  </span>
+<span>{{castle.city}}</span>
+<div id="description">{{castle.description}}</div>
+    </div>
+</ng-container>
+  </nz-modal>

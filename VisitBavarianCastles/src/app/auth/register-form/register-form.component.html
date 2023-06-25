@@ -1,0 +1,90 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Register" (nzOnCancel)="onCancel()" (nzOnOk)="onOk()"
+    [nzOkDisabled]="!registerForm.valid">
+    <ng-container *nzModalContent>
+        <form nz-form [formGroup]="registerForm" class="register-form">
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group nzPrefixIcon="robot">
+                        <input type="text" nz-input formControlName="username" placeholder="Username" />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="username?.errors?.['required']">
+                        Username is required
+                    </div>
+                    <div class="red-text" *ngIf="username?.errors?.['usernameExists']">
+                        Username already exists
+                    </div>
+                    <div class="red-text" *ngIf="username?.errors?.['minLength']">
+                        Username must be at least 3 characters long
+                    </div>
+                    <div class="red-text" *ngIf="username?.errors?.['maxLength']">
+                        Username must be at most 20 characters long
+                    </div>
+                    <div class="red-text" *ngIf="username?.errors?.['containsAtLeastTwoLetters']">
+                        Username must contain at least two letters
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group nzPrefixIcon="lock">
+                        <input type="password" nz-input formControlName="password" placeholder="Password" />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="password?.errors?.['required']">
+                        Password is required
+                    </div>
+                    <div class="red-text" *ngIf="password?.errors?.['minLength']">
+                        Password must be at least 8 characters long
+                    </div>
+                    <div class="red-text" *ngIf="password?.errors?.['containsAtLeastTwoLetters']">
+                        Password must contain at least two letters
+                    </div>
+                    <div class="red-text" *ngIf="password?.errors?.['containsLowercaseLetter']">
+                        Password must contain at least one lowercase letter
+                    </div>
+                    <div class="red-text" *ngIf="password?.errors?.['containsUppercaseLetter']">
+                        Password must contain at least one uppercase letter
+                    </div>
+                    <div class="red-text" *ngIf="password?.errors?.['containsDigit']">
+                        Password must contain at least one digit
+                    </div>
+                    <div class="red-text" *ngIf="password?.errors?.['containsSpecialCharacter']">
+                        Password must contain at least one special character
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group nzPrefixIcon="lock">
+                        <input type="password" nz-input formControlName="confirmPassword" placeholder="Confirm Password" />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="confirmPassword?.errors?.['required']">
+                        Password should be confirmed
+                    </div>
+                    <div class="red-text" *ngIf="confirmPassword?.errors?.['passwordsDoNotMatch']">
+                        Passwords do not match
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group nzPrefixIcon="robot">
+                        <input type="text" nz-input formControlName="firstName" placeholder="First Name" />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="firstName?.errors?.['required']">
+                        First Name is required
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group nzPrefixIcon="robot">
+                        <input type="text" nz-input formControlName="lastName" placeholder="Last Name" />
+                    </nz-input-group>
+                    <div class="red-text" *ngIf="lastName?.errors?.['required']">
+                        Last Name is required
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </ng-container>
+</nz-modal>
